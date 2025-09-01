@@ -1,0 +1,24 @@
+@import "scss/index";
+
+body {
+  margin: 0;
+  background-color: var(--secundary);
+  padding-bottom: calc(var(--footer-height) + env(safe-area-inset-bottom)); /* espaço pro footer + notch (iOS) */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 400px;
+    width: 450px;
+    .input-form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      margin-right: 35px;
+    }
+  }
+
+

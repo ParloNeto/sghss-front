@@ -1,0 +1,22 @@
+<div class="container">
+<form class="login" [formGroup]="loginUser" (ngSubmit)="clickEntrar()">
+    <img src="/logo.png" />
+    <div class="input">
+      <label for="login">Login:</label>
+      <input type="text" formControlName="login" placeholder="Digite aqui..." name="login" value="">
+    </div>
+    <div class="input">
+      <label for="login">Senha:</label>
+      <input type="password"  formControlName="password" placeholder="************" name="login" value="">
+        <p>Esqueci minha senha</p>
+@if (erroLogin) {
+    <p class="erro-msg">Credenciais inválidas</p>
+    }
+    </div>
+
+
+    <button type="submit" class="btn-primary">Entrar</button>
+</form>
+
+</div>
+<app-footer/>

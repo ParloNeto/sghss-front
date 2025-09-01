@@ -1,0 +1,37 @@
+<app-header />
+<div class="telemedicina-container">
+  <h2>Telemedicina</h2>
+
+  <form [formGroup]="teleForm" (ngSubmit)="iniciarConsulta()">
+
+    <div class="form-row">
+      <label>Paciente</label>
+      <select formControlName="paciente">
+        <option value="">Selecione o paciente...</option>
+        <option *ngFor="let p of pacientes" [value]="p">{{ p }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Profissional</label>
+      <select formControlName="profissional">
+        <option value="">Selecione o profissional...</option>
+        <option *ngFor="let prof of profissionais" [value]="prof">{{ prof }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Data e Hora</label>
+      <input type="datetime-local" formControlName="dataHora" />
+    </div>
+
+    <div class="form-row">
+      <label>Link da Consulta</label>
+      <input type="text" formControlName="link" readonly />
+    </div>
+
+    <button type="submit" class="btn-iniciar">Iniciar Consulta</button>
+  </form>
+</div>
+
+<app-footer />

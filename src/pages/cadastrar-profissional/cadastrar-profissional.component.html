@@ -1,0 +1,43 @@
+<app-header />
+<div class="cadastro-container">
+  <h2>Cadastro de Profissionais da Saúde</h2>
+
+  <form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
+
+    <div class="form-row">
+      <label>Nome Completo</label>
+      <input type="text" formControlName="nome" placeholder="Digite o nome completo" />
+    </div>
+
+    <div class="form-row">
+      <label>Email/Login</label>
+      <input type="email" formControlName="email" placeholder="exemplo@vidaplus.com" />
+    </div>
+
+    <div class="form-row">
+      <label>Senha Provisória</label>
+      <input type="password" formControlName="senha" placeholder="********" />
+    </div>
+
+    <div class="form-row">
+      <label>Especialidade</label>
+      <input type="text" formControlName="especialidade" placeholder="Ex.: Cardiologia" />
+    </div>
+
+    <div class="form-row">
+      <label>Tipo</label>
+      <select formControlName="tipo">
+        <option value="">Selecione...</option>
+        <option *ngFor="let t of tipos" [value]="t">{{ t }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Registro Profissional</label>
+      <input type="text" formControlName="registro" placeholder="CRM, COREN, etc." />
+    </div>
+
+    <button type="submit" class="btn-salvar">Salvar Profissional</button>
+  </form>
+</div>
+<app-footer />

@@ -1,0 +1,21 @@
+<app-header />
+<div class="consulta-detalhe" *ngIf="consulta">
+  <h2>Detalhes da Consulta</h2>
+
+  <div class="info">
+    <p><strong>Profissional:</strong> {{ consulta.profissional }} ({{ consulta.especialidade }})</p>
+    <p><strong>Paciente:</strong> {{ consulta.paciente }}</p>
+    <p><strong>Data e Hora:</strong> {{ consulta.dataHora }}</p>
+    <p *ngIf="consulta.local"><strong>Local:</strong> {{ consulta.local }}</p>
+    <p *ngIf="consulta.linkTelemedicina"><strong>Link Telemedicina:</strong> {{ consulta.linkTelemedicina }}</p>
+    <p><strong>Status:</strong> {{ consulta.status }}</p>
+  </div>
+
+  <div class="actions">
+    <button (click)="cancelarConsulta()" class="btn-cancelar" *ngIf="consulta.status === 'AGENDADA'">Cancelar Consulta</button>
+    <button (click)="entrarTeleconsulta()" class="btn-entrar" *ngIf="consulta.linkTelemedicina">Entrar na Teleconsulta</button>
+  </div>
+</div>
+
+<app-footer />
+

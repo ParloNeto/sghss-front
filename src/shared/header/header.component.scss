@@ -1,0 +1,112 @@
+:host {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: var(--primary);
+
+    img.logo {
+      width: 235px;
+      height: 100px;
+    }
+
+    img.notification {
+      position: absolute;
+      left: 10px;
+    }
+
+    .user-account {
+      position: absolute;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      p {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        text-align: right;
+        color: var(--white);
+      }
+
+      .icon-user {
+        width: 75px;
+        height: 75px;
+        background: var(--white);
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: auto;
+    position: relative;
+
+    img.logo {
+      width: 180px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    img.notification {
+      position: static;
+      width: 32px;
+      height: 32px;
+    }
+
+    .user-account {
+      position: static;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+
+      .message-user {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .icon-user {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+
+    img.logo {
+      width: 150px;
+    }
+    img.notification {
+      display: none;
+    }
+
+    .user-account {
+      margin-right: 35px;
+      margin-bottom: 55px;
+
+      .message-user p {
+        font-size: 13px;
+      }
+
+      .icon-user {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+  }
+}

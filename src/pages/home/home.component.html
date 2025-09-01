@@ -1,0 +1,61 @@
+<app-header />
+<div class="home">
+  <div class="home__container">
+    <div class="acesso-rapido-container">
+      <p class="user">Olá, {{ nome }}!</p>
+      <div class="list-acesso-rapido">
+        @for (item of acessoRapido; track $index) {
+        <div [routerLink]="[item.link]" class="acesso-rapido">
+          <p>{{ item.text }}</p>
+        </div>
+        }
+      </div>
+    </div>
+    @if (usuario?.roles?.includes('ROLE_PACIENTE')) {
+    <div class="minhas-consultas">
+      <div class="minhas-consultas__container">
+        <p>Minhas consultas</p>
+        <div class="list-consultas">
+          @for (consulta of minhasConsultas; track $index) {
+          <div class="consultas" (click)="abrirConsulta(consulta.id)">
+            <p class="nome-usuario">{{ consulta.profissional }}</p>
+            <div class="infos-consulta">
+              <p class="endereco">{{ consulta.endereco }}</p>
+              <p class="data">{{ consulta.dataHora }}</p>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    } @else if (usuario?.roles?.includes('ROLE_ADMIN')) {
+            <div class="visao-geral">
+              <div class="visao-geral__container">
+                                  <p class="info-title">Visão Geral</p>
+                <div class="list">
+                  <p class="info">Número de Pacientes: <span class="info-number">52</span></p>
+                  <p class="info">Leitos Ocupados: <span class="info-number">8</span></p>
+                  <p class="info">Equipe de Plantão: <span class="info-number">2</span></p>
+                </div>
+              </div>
+            </div>
+          } @else {
+            <div class="minhas-consultas">
+      <div class="minhas-consultas__container">
+        <p>Pacientes do dia - 02/08/2025</p>
+        <div class="list-consultas">
+
+          <div class="consultas">
+            <p class="nome-usuario">Jose Alberto</p>
+            <div class="infos-consulta">
+              <p style="font-size: 24px;" class="horario">Horário: 16:30</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+          }
+  </div>
+</div>
+<app-footer />

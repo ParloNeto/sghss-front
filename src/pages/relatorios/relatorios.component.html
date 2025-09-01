@@ -1,0 +1,17 @@
+<app-header />
+<div class="relatorios-container">
+  <h2>Relatórios</h2>
+
+  <div class="cards-container">
+    <div class="card" *ngFor="let r of relatorios">
+      <h3>{{ r.titulo }}</h3>
+      <p>{{ r.valor }}</p>
+    </div>
+  </div>
+
+  <div class="acoes">
+    <button class="btn" (click)="exportarPDF()">Exportar em PDF</button>
+  </div>
+</div>
+<app-footer />
+

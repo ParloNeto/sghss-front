@@ -1,0 +1,39 @@
+<app-header />
+<div class="cadastrar-consultas">
+    <div class="agendamento-container">
+  <h2>Agendamento de Consulta</h2>
+
+  <form [formGroup]="agendamentoForm" (ngSubmit)="confirmar()">
+
+    <div class="form-row">
+      <label>Especialidade</label>
+      <select formControlName="especialidade">
+        <option value="">Selecione a especialidade...</option>
+        <option *ngFor="let esp of especialidades" [value]="esp">{{ esp }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Profissional</label>
+      <select formControlName="profissional">
+        <option value="">Selecione o profissional...</option>
+        <option *ngFor="let prof of profissionais" [value]="prof">{{ prof }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Tipo de consulta</label>
+      <input type="text" formControlName="tipoConsulta" placeholder="Digite aqui..." />
+    </div>
+
+    <div class="form-row">
+      <label>Data e hora</label>
+      <input type="datetime-local" formControlName="dataHora" />
+    </div>
+
+    <button type="submit" class="btn-confirmar">Confirmar Agendamento</button>
+  </form>
+</div>
+
+  </div>
+<app-footer />

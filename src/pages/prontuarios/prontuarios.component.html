@@ -1,0 +1,35 @@
+<app-header />
+<div class="prontuarios-container">
+  <h2>Prontuários Médicos</h2>
+
+  <div class="content">
+    <div class="lista-pacientes">
+      <h3>Pacientes</h3>
+      <ul>
+        <li *ngFor="let p of prontuarios" (click)="selecionarProntuario(p)"
+            [class.selecionado]="prontuarioSelecionado === p">
+          <strong>{{ p.paciente }}</strong> ({{ p.idade }} anos)
+          <span>- {{ p.diagnostico }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="detalhes-prontuario" *ngIf="prontuarioSelecionado">
+      <h3>Prontuário de {{ prontuarioSelecionado.paciente }}</h3>
+      <p><strong>Idade:</strong> {{ prontuarioSelecionado.idade }}</p>
+      <p><strong>Diagnóstico:</strong> {{ prontuarioSelecionado.diagnostico }}</p>
+
+      <h4>Anotações</h4>
+      <ul>
+        <li *ngFor="let anotacao of prontuarioSelecionado.anotacoes">{{ anotacao }}</li>
+      </ul>
+
+      <div class="nova-anotacao">
+        <textarea [(ngModel)]="novaAnotacao" placeholder="Adicionar nova anotação..."></textarea>
+        <button (click)="adicionarAnotacao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer />

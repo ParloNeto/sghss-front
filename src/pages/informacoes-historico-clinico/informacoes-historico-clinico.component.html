@@ -1,0 +1,14 @@
+<app-header />
+<div class="historico-container">
+  <h2>Histórico Clínico</h2>
+
+  <div class="card" *ngFor="let h of historico">
+    <p><strong>Data:</strong> {{ h.data }}</p>
+    <p><strong>Profissional:</strong> {{ h.profissional }}</p>
+    <p><strong>Especialidade:</strong> {{ h.especialidade }}</p>
+    <p><strong>Diagnóstico:</strong> {{ h.diagnostico }}</p>
+    <p *ngIf="h.receita"><strong>Receita:</strong> {{ h.receita }}</p>
+  </div>
+</div>
+
+<app-footer />

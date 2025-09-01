@@ -1,0 +1,39 @@
+<app-header />
+<div class="historico-container">
+  <h2>Histórico Clínico</h2>
+
+  <form [formGroup]="historicoForm" (ngSubmit)="salvar()">
+
+    <div class="form-row">
+      <label>Paciente</label>
+      <select formControlName="paciente">
+        <option value="">Selecione o paciente...</option>
+        <option *ngFor="let p of pacientes" [value]="p">{{ p }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Condições de Saúde</label>
+      <textarea formControlName="condicoes" rows="2" placeholder="Ex.: Diabetes, Hipertensão..."></textarea>
+    </div>
+
+    <div class="form-row">
+      <label>Medicamentos em Uso</label>
+      <textarea formControlName="medicamentos" rows="2" placeholder="Ex.: Metformina, Losartana..."></textarea>
+    </div>
+
+    <div class="form-row">
+      <label>Alergias</label>
+      <textarea formControlName="alergias" rows="2" placeholder="Ex.: Alergia a penicilina..."></textarea>
+    </div>
+
+    <div class="form-row">
+      <label>Observações Adicionais</label>
+      <textarea formControlName="observacoes" rows="2" placeholder="Observações relevantes..."></textarea>
+    </div>
+
+    <button type="submit" class="btn-salvar">Salvar Histórico</button>
+  </form>
+</div>
+
+<app-footer />
